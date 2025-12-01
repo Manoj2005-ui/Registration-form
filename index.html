@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            width: 300px;
+            margin: auto;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 6px;
+            margin: 6px 0 12px 0;
+        }
+        button {
+            width: 100%;
+            padding: 8px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+
+    <script>
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var errorMsg = document.getElementById("errorMsg");
+
+            if (password !== confirmPassword) {
+                errorMsg.textContent = "Passwords do not match!";
+                return false;
+            } else {
+                errorMsg.textContent = "";
+                alert("Registration Successful!");
+                return true;
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+    <div class="container">
+        <h2>Registration Form</h2>
+
+        <form onsubmit="return validateForm()">
+            <label>Username:</label>
+            <input type="text" id="username" required>
+
+            <label>Password:</label>
+            <input type="password" id="password" required>
+
+            <label>Confirm Password:</label>
+            <input type="password" id="confirmPassword" required>
+
+            <p id="errorMsg" class="error"></p>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+</body>
+</html>
